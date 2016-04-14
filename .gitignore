@@ -1,0 +1,24 @@
+# Extracted from https://github.com/ulrich/macaron-factory/blob/master/.gitignore
+# except for .gitignore
+!.gitignore
+
+# Ignore Play! working directory #
+lib
+log
+logs
+precompiled
+project/project
+project/target
+target
+tmp
+activator-*.sbt
+.DS_Store
+.idea
+*.iml
+*.ipr
+*.log
+.sbtserver*
+sbt-ui.sbt
+classes/
+target/
+sbt-launch.jar
