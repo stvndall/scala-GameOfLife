@@ -17,15 +17,13 @@ class testClass extends FunSuite{
   }
 
   test("printing"){
-//    Printer(1 to 10)
     Printer(Array(new PointInWorld(1,1), new PointInWorld(3,3) ,new PointInWorld(2,2), new PointInWorld(4,4)))
     Printer() = 32
-//    Printer(Array(new PointInWorld(1,1), new PointInWorld(3,3) ,new PointInWorld(2,2), new PointInWorld(4,4)))
   }
-//  test("Invoking head on an empty Set should produce NoSuchElementException") {
-//    intercept[NoSuchElementException] {
-//      Set.empty.head
-//    }
-//  }
+
+  test("point in world should return 8 neighbours"){
+    val a=    PointInWorld(1,1).Neighbours()
+    assert(a.length == 8)
+  }
 
 }
