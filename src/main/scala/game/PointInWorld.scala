@@ -8,21 +8,23 @@ import scala.collection.immutable.Range.Inclusive
   */
 case class PointInWorld(locX: Int, locY: Int) {
 
-  def createPoint(x:Int, y:Int) : PointInWorld ={
-     new PointInWorld(locX + x, locY +y);
+  def createPoint(x: Int, y: Int): PointInWorld = {
+    new PointInWorld(locX + x, locY + y)
   }
 
-  def createLocations(xLocation: Array[Int]):Array[PointInWorld] = xLocation match {
-    case x if x.length == 0=> new Array[PointInWorld](0)
-    case x if x.head == 0 => (for (y <- Array(-1,1)
-      .filter(_!= 0 ))
-      yield createPoint(xLocation.head, y)) ++ createLocations(xLocation.tail)
-    case _ => (for (y <- Array(-1,0,1)
-      .filter(d => {d!= 0 && xLocation.head != 0}))
+
+  def getYCoords(x: Int) = x match {
+    case 0 => Array(-1, 1)
+    case _ => Array(-1, 0, 1)
+  }
+
+  def createLocations(xLocation: Array[Int]): Array[PointInWorld] = xLocation match {
+    case x if x.length == 0 => new Array[PointInWorld](0)
+    case _ => (for (y <- getYCoords(xLocation.head))
       yield createPoint(xLocation.head, y)) ++ createLocations(xLocation.tail)
   }
 
   def Neighbours(): Seq[PointInWorld] = {
-    createLocations(Array(-1,0, 1))
+    createLocations(Array(-1, 0, 1))
   }
 }
