@@ -2,7 +2,7 @@ package game
 
 import org.scalatest.FunSuite
 
-class testClass extends FunSuite {
+class GameOfLifeControllerTests extends FunSuite {
 
   test("Empty world should return empty") {
     assert(GameOfLifeController(new Array[PointInWorld](0)).length == 0)
@@ -18,5 +18,9 @@ class testClass extends FunSuite {
 
   test("Point in world should return 8 neighbours") {
     assert(PointInWorld(1, 1).Neighbours().distinct.length == 8)
+  }
+
+  test("spinner should rotate"){
+    assert(GameOfLifeController(Array(new PointInWorld(1, 1), new PointInWorld(1,0), new PointInWorld(1,-1)))== Array(new PointInWorld(1, 1), new PointInWorld(0,1), new PointInWorld(-1,1)))
   }
 }

@@ -4,13 +4,11 @@ object GameOfLifeController {
 
 
   def GetStayingPoints(points: Array[PointInWorld]): Array[PointInWorld] = {
-    def runFunc(controller: PointInWorld): PointInWorld = {
-
-    }
+    Array()
   }
 
   def GetNewLifePoints(points: Array[PointInWorld]): Array[PointInWorld] = {
-
+    Array()
   }
 
   def apply(points: Array[PointInWorld]): Array[PointInWorld] = points.length match {
