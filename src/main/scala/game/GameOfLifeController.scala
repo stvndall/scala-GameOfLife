@@ -13,6 +13,6 @@ object GameOfLifeController {
   }
 
   def apply(points: Array[PointInWorld]): Array[PointInWorld] = {
-    GetStayingPoints(new LifeCheckers(points),points).filter(cell => cell != null) ++ GetNewLifePoints(new LifeCheckers(points), points).filter(cell => cell != null)
+    (GetStayingPoints(new LifeCheckers(points),points) ++ GetNewLifePoints(new LifeCheckers(points), points)) filter(_!= null) distinct
   }
 }

@@ -1,7 +1,5 @@
 package game
 
-
-
 class LifeCheckers(world: Array[PointInWorld]) {
   def ShouldStayAlive(point: PointInWorld): PointInWorld = point.Neighbours().intersect(world).length match {
     case it if 2 to 3 contains it => point

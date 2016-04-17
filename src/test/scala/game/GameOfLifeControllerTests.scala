@@ -27,6 +27,16 @@ class GameOfLifeControllerTests extends FunSuite {
     for (i <- arrayOfPoints) {
       assert(expected.contains(i))
     }
+  }
+
+  test("block should stay static") {
+    val block: Array[PointInWorld] = Array(new PointInWorld(1, 1), new PointInWorld(1, 0), new PointInWorld(0, 1), new PointInWorld(0, 0))
+    val arrayOfPoints = GameOfLifeController(block)
+    val expected = Array(new PointInWorld(1, 1), new PointInWorld(1, 0), new PointInWorld(0, 1), new PointInWorld(0, 0))
+    assert(arrayOfPoints.length == 4)
+    for (i <- arrayOfPoints) {
+      assert(expected.contains(i))
+    }
 
     //    assert(arrayOfPoints.sameElements())
     //    assert(arrayOfPoints.contains(new PointInWorld(0, 0)))
@@ -34,3 +44,4 @@ class GameOfLifeControllerTests extends FunSuite {
     //    assert(arrayOfPoints.contains(new PointInWorld(2, 0)))
   }
 }
+
