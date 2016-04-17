@@ -24,7 +24,7 @@ case class PointInWorld(locX: Int, locY: Int) {
       yield createPoint(xLocation.head, y)) ++ createLocations(xLocation.tail)
   }
 
-  def Neighbours(): Seq[PointInWorld] = {
+  def Neighbours(): Array[PointInWorld] = {
     createLocations(Array(-1, 0, 1))
   }
 }

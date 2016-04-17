@@ -21,10 +21,16 @@ class GameOfLifeControllerTests extends FunSuite {
   }
 
   test("spinner should rotate") {
-    val arrayOfPoints: Array[PointInWorld] = GameOfLifeController(Array(new PointInWorld(1, 1), new PointInWorld(1, 0), new PointInWorld(1, -1)))
+    val arrayOfPoints = GameOfLifeController(Array(new PointInWorld(1, 1), new PointInWorld(1, 0), new PointInWorld(1, -1)))
+    val expected = Array(new PointInWorld(1, 0), new PointInWorld(2, 0), new PointInWorld(0, 0))
     assert(arrayOfPoints.length == 3)
-    assert(arrayOfPoints.contains(new PointInWorld(0, 0)))
-    assert(arrayOfPoints.contains(new PointInWorld(1, 0)))
-    assert(arrayOfPoints.contains(new PointInWorld(2, 0)))
+    for (i <- arrayOfPoints) {
+      assert(expected.contains(i))
+    }
+
+    //    assert(arrayOfPoints.sameElements())
+    //    assert(arrayOfPoints.contains(new PointInWorld(0, 0)))
+    //    assert(arrayOfPoints.contains(new PointInWorld(1, 0)))
+    //    assert(arrayOfPoints.contains(new PointInWorld(2, 0)))
   }
 }
